@@ -1,32 +1,345 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Mathis Coutelier - Data Scientist</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mathis Coutelier - Data Scientist Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .gradient-bg { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
+        .card-hover { transition: all 0.3s ease; }
+        .card-hover:hover { transform: translateY(-5px); box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
+        .smooth-scroll { scroll-behavior: smooth; }
+        .fade-in { opacity: 0; transform: translateY(30px); transition: all 0.6s ease; }
+        .fade-in.visible { opacity: 1; transform: translateY(0); }
+        .nav-link { position: relative; }
+        .nav-link::after { content: ''; position: absolute; width: 0; height: 2px; bottom: -5px; left: 0; background: #667eea; transition: width 0.3s ease; }
+        .nav-link:hover::after { width: 100%; }
+        .skill-tag { background: linear-gradient(135deg, #667eea, #764ba2); }
+        .project-card { background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.1); }
+    </style>
 </head>
-<body>
-  <header>
-    <h1>Mathis Coutelier</h1>
-    <p>Data Scientist passionné par l'IA, le NLP, et les interfaces intelligentes</p>
-  </header>
+<body class="bg-gray-50 smooth-scroll">
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full bg-white/90 backdrop-blur-md z-50 shadow-sm">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center py-4">
+                <div class="text-xl font-bold text-gray-800">Mathis Coutelier</div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#home" class="nav-link text-gray-600 hover:text-gray-900">Home</a>
+                    <a href="#about" class="nav-link text-gray-600 hover:text-gray-900">About</a>
+                    <a href="#skills" class="nav-link text-gray-600 hover:text-gray-900">Skills</a>
+                    <a href="#projects" class="nav-link text-gray-600 hover:text-gray-900">Projects</a>
+                    <a href="#contact" class="nav-link text-gray-600 hover:text-gray-900">Contact</a>
+                </div>
+                <button id="mobile-menu-btn" class="md:hidden text-gray-600">
+                    <i class="fas fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t">
+            <div class="px-4 py-2 space-y-2">
+                <a href="#home" class="block py-2 text-gray-600">Home</a>
+                <a href="#about" class="block py-2 text-gray-600">About</a>
+                <a href="#skills" class="block py-2 text-gray-600">Skills</a>
+                <a href="#projects" class="block py-2 text-gray-600">Projects</a>
+                <a href="#contact" class="block py-2 text-gray-600">Contact</a>
+            </div>
+        </div>
+    </nav>
 
-  <section>
-    <h2>Projets</h2>
-    <ul>
-      <li>🧠 Audit RGPD avec RAG & PyQt6</li>
-      <li>📄 Générateur d'avis de conformité</li>
-      <li>📊 Dashboard Data Privacy multi-clients</li>
-    </ul>
-  </section>
+    <!-- Home Section -->
+    <section id="home" class="min-h-screen gradient-bg flex items-center justify-center text-white">
+        <div class="max-w-4xl mx-auto px-4 text-center">
+            <div class="fade-in">
+                <h1 class="text-5xl md:text-7xl font-bold mb-6">Hi, I'm Mathis Coutelier</h1>
+                <p class="text-xl md:text-2xl mb-8 opacity-90">A Data Scientist passionate about AI, data modeling, and software engineering.</p>
+                <a href="#projects" class="inline-block bg-white text-purple-600 px-8 py-4 rounded-full font-semibold hover:bg-gray-100 transition-all duration-300 transform hover:scale-105">
+                    Explore my work
+                </a>
+            </div>
+        </div>
+    </section>
 
-  <section>
-    <h2>À propos</h2>
-    <p>Je suis diplômé d'une école d'ingénieur spécialisée en IA & Data Science. J’ai développé plusieurs applications mêlant NLP, LLM et front-end avec PyQt6.</p>
-  </section>
+    <!-- About Section -->
+    <section id="about" class="py-20 bg-white">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-4xl font-bold text-gray-800 mb-4">About Me</h2>
+                <div class="w-20 h-1 bg-gradient-to-r from-purple-500 to-blue-500 mx-auto"></div>
+            </div>
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="fade-in">
+                    <div class="w-64 h-64 mx-auto bg-gradient-to-br from-purple-400 to-blue-500 rounded-full flex items-center justify-center">
+                        <i class="fas fa-user text-white text-6xl"></i>
+                    </div>
+                </div>
+                <div class="fade-in">
+                    <p class="text-lg text-gray-600 mb-6">
+                        I'm a recent graduate from an engineering school specialized in Data Science and Artificial Intelligence. My journey in tech has been driven by curiosity and a passion for solving complex problems through data.
+                    </p>
+                    <p class="text-lg text-gray-600 mb-6">
+                        I have hands-on experience in RGPD compliance projects, NLP applications, and AI automation tools. My work focuses on creating practical solutions that bridge the gap between complex algorithms and real-world applications.
+                    </p>
+                    <p class="text-lg text-gray-600 mb-6">
+                        I aspire to work in the US tech industry and am inspired by innovators like Elon Musk who push the boundaries of what's possible with technology. I believe in the power of AI to transform industries and improve lives.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#resume.pdf" class="bg-purple-600 text-white px-6 py-3 rounded-lg hover:bg-purple-700 transition-colors">
+                            <i class="fas fa-download mr-2"></i>Download Resume
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  <footer>
-    <p>📧 <a href="mailto:mathis@email.com">mathis@email.com</a> | <a href="CV_MathisCoutelier.pdf">Télécharger mon CV</a></p>
-  </footer>
-</body>
+    <!-- Skills Section -->
+    <section id="skills" class="py-20 bg-gray-50">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-4xl font-bold text-gray-800 mb-4">Skills</h2>
+                <div class="w-20 h-1 bg-gradient-to-r from-purple-500 to-blue-500 mx-auto"></div>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Programming Skills -->
+                <div class="bg-white p-8 rounded-xl shadow-lg card-hover fade-in">
+                    <div class="text-center mb-6">
+                        <i class="fas fa-code text-4xl text-purple-600 mb-4"></i>
+                        <h3 class="text-xl font-semibold text-gray-800">Programming</h3>
+                    </div>
+                    <div class="space-y-3">
+                        <span class="skill-tag text-white px-3 py-1 rounded-full text-sm inline-block mr-2 mb-2">Python</span>
+                        <span class="skill-tag text-white px-3 py-1 rounded-full text-sm inline-block mr-2 mb-2">Pandas</span>
+                        <span class="skill-tag text-white px-3 py-1 rounded-full text-sm inline-block mr-2 mb-2">Scikit-learn</span>
+                        <span class="skill-tag text-white px-3 py-1 rounded-full text-sm inline-block mr-2 mb-2">PyTorch</span>
+                        <span class="skill-tag text-white px-3 py-1 rounded-full text-sm inline-block mr-2 mb-2">SQL</span>
+                        <span class="skill-tag text-white px-3 py-1 rounded-full text-sm inline-block mr-2 mb-2">Git</span>
+                    </div>
+                </div>
+
+                <!-- Tools -->
+                <div class="bg-white p-8 rounded-xl shadow-lg card-hover fade-in">
+                    <div class="text-center mb-6">
+                        <i class="fas fa-tools text-4xl text-blue-600 mb-4"></i>
+                        <h3 class="text-xl font-semibold text-gray-800">Tools</h3>
+                    </div>
+                    <div class="space-y-3">
+                        <span class="skill-tag text-white px-3 py-1 rounded-full text-sm inline-block mr-2 mb-2">Power BI</span>
+                        <span class="skill-tag text-white px-3 py-1 rounded-full text-sm inline-block mr-2 mb-2">PyQt6</span>
+                        <span class="skill-tag text-white px-3 py-1 rounded-full text-sm inline-block mr-2 mb-2">LangChain</span>
+                        <span class="skill-tag text-white px-3 py-1 rounded-full text-sm inline-block mr-2 mb-2">OpenAI APIs</span>
+                    </div>
+                </div>
+
+                <!-- Soft Skills -->
+                <div class="bg-white p-8 rounded-xl shadow-lg card-hover fade-in">
+                    <div class="text-center mb-6">
+                        <i class="fas fa-users text-4xl text-green-600 mb-4"></i>
+                        <h3 class="text-xl font-semibold text-gray-800">Soft Skills</h3>
+                    </div>
+                    <div class="space-y-3">
+                        <span class="skill-tag text-white px-3 py-1 rounded-full text-sm inline-block mr-2 mb-2">Autonomy</span>
+                        <span class="skill-tag text-white px-3 py-1 rounded-full text-sm inline-block mr-2 mb-2">Curiosity</span>
+                        <span class="skill-tag text-white px-3 py-1 rounded-full text-sm inline-block mr-2 mb-2">Communication</span>
+                        <span class="skill-tag text-white px-3 py-1 rounded-full text-sm inline-block mr-2 mb-2">Agile Teamwork</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 bg-white">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-4xl font-bold text-gray-800 mb-4">Projects</h2>
+                <div class="w-20 h-1 bg-gradient-to-r from-purple-500 to-blue-500 mx-auto"></div>
+            </div>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project 1 -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden card-hover fade-in">
+                    <div class="h-48 bg-gradient-to-br from-purple-400 to-blue-500 flex items-center justify-center">
+                        <i class="fas fa-robot text-white text-4xl"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-3">AI-Powered RGPD Chatbot</h3>
+                        <p class="text-gray-600 mb-4">An intelligent chatbot for RGPD compliance using RAG (Retrieval-Augmented Generation) and Large Language Models to provide accurate legal guidance.</p>
+                        <div class="flex space-x-2">
+                            <span class="bg-purple-100 text-purple-800 px-2 py-1 rounded text-sm">NLP</span>
+                            <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded text-sm">RAG</span>
+                            <span class="bg-green-100 text-green-800 px-2 py-1 rounded text-sm">LLM</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden card-hover fade-in">
+                    <div class="h-48 bg-gradient-to-br from-green-400 to-blue-500 flex items-center justify-center">
+                        <i class="fas fa-desktop text-white text-4xl"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-3">PyQt6 Data Preprocessing Tool</h3>
+                        <p class="text-gray-600 mb-4">A desktop application built with PyQt6 for automated data preprocessing and machine learning model code generation, streamlining the ML workflow.</p>
+                        <div class="flex space-x-2">
+                            <span class="bg-purple-100 text-purple-800 px-2 py-1 rounded text-sm">PyQt6</span>
+                            <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded text-sm">ML</span>
+                            <span class="bg-green-100 text-green-800 px-2 py-1 rounded text-sm">Automation</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden card-hover fade-in">
+                    <div class="h-48 bg-gradient-to-br from-yellow-400 to-red-500 flex items-center justify-center">
+                        <i class="fas fa-chart-line text-white text-4xl"></i>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-800 mb-3">Crypto/Stock Portfolio Tracker</h3>
+                        <p class="text-gray-600 mb-4">A comprehensive portfolio tracking application for cryptocurrency and stock investments with real-time data analysis and performance metrics.</p>
+                        <div class="flex space-x-2">
+                            <span class="bg-yellow-100 text-yellow-800 px-2 py-1 rounded text-sm">In Progress</span>
+                            <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded text-sm">Finance</span>
+                            <span class="bg-green-100 text-green-800 px-2 py-1 rounded text-sm">Analytics</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-gray-50">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 fade-in">
+                <h2 class="text-4xl font-bold text-gray-800 mb-4">Get In Touch</h2>
+                <div class="w-20 h-1 bg-gradient-to-r from-purple-500 to-blue-500 mx-auto"></div>
+                <p class="text-lg text-gray-600 mt-4">Let's discuss opportunities and collaborate on exciting projects!</p>
+            </div>
+            <div class="grid md:grid-cols-2 gap-12">
+                <!-- Contact Info -->
+                <div class="fade-in">
+                    <h3 class="text-2xl font-semibold text-gray-800 mb-6">Contact Information</h3>
+                    <div class="space-y-4">
+                        <div class="flex items-center">
+                            <i class="fas fa-envelope text-purple-600 text-xl mr-4"></i>
+                            <span class="text-gray-600">mathis.coutelier@email.com</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fab fa-linkedin text-purple-600 text-xl mr-4"></i>
+                            <a href="https://linkedin.com/in/mathis-coutelier" class="text-gray-600 hover:text-purple-600">linkedin.com/in/mathis-coutelier</a>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fab fa-github text-purple-600 text-xl mr-4"></i>
+                            <a href="https://github.com/mathiscoutelier" class="text-gray-600 hover:text-purple-600">github.com/mathiscoutelier</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Form -->
+                <div class="fade-in">
+                    <form id="contact-form" class="space-y-6">
+                        <div>
+                            <label for="name" class="block text-sm font-medium text-gray-700 mb-2">Name</label>
+                            <input type="text" id="name" name="name" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent">
+                        </div>
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-gray-700 mb-2">Email</label>
+                            <input type="email" id="email" name="email" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent">
+                        </div>
+                        <div>
+                            <label for="message" class="block text-sm font-medium text-gray-700 mb-2">Message</label>
+                            <textarea id="message" name="message" rows="5" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"></textarea>
+                        </div>
+                        <button type="submit" class="w-full bg-purple-600 text-white py-3 px-6 rounded-lg hover:bg-purple-700 transition-colors font-semibold">
+                            Send Message
+                        </button>
+                    </form>
+                    <div id="form-message" class="mt-4 text-center hidden"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8">
+        <div class="max-w-6xl mx-auto px-4 text-center">
+            <p>&copy; 2024 Mathis Coutelier. All rights reserved.</p>
+            <p class="text-gray-400 mt-2">Built with passion for data science and AI</p>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+                // Close mobile menu if open
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Fade in animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Contact form handling
+        document.getElementById('contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const formMessage = document.getElementById('form-message');
+            formMessage.className = 'mt-4 text-center p-4 bg-green-100 text-green-800 rounded-lg';
+            formMessage.textContent = 'Thank you for your message! This is a demo form - in a real implementation, this would send your message.';
+            formMessage.classList.remove('hidden');
+            
+            // Reset form
+            this.reset();
+            
+            // Hide message after 5 seconds
+            setTimeout(() => {
+                formMessage.classList.add('hidden');
+            }, 5000);
+        });
+
+        // Initialize first fade-in elements
+        setTimeout(() => {
+            document.querySelectorAll('#home .fade-in').forEach(el => {
+                el.classList.add('visible');
+            });
+        }, 500);
+    </script>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'966383336003fb6d',t:'MTc1MzY5NjY0OC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
