@@ -164,23 +164,24 @@
             </div>
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Project 1 -->
-                <div class="bg-white rounded-xl shadow-lg overflow-hidden card-hover fade-in">
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden card-hover fade-in cursor-pointer" onclick="showProject('project1')">
                     <div class="h-48 bg-gradient-to-br from-purple-400 to-blue-500 flex items-center justify-center">
                         <i class="fas fa-robot text-white text-4xl"></i>
                     </div>
                     <div class="p-6">
                         <h3 class="text-xl font-semibold text-gray-800 mb-3">AI-Powered RGPD Chatbot</h3>
-                        <p class="text-gray-600 mb-4">An intelligent chatbot for GDPR compliance using RAG (Retrieval-Augmented Generation) and Large Language Models to provide accurate legal guidance.</p>
+                        <p class="text-gray-600 mb-4">An intelligent chatbot for RGPD compliance using RAG (Retrieval-Augmented Generation) and Large Language Models to provide accurate legal guidance.</p>
                         <div class="flex space-x-2">
                             <span class="bg-purple-100 text-purple-800 px-2 py-1 rounded text-sm">NLP</span>
                             <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded text-sm">RAG</span>
                             <span class="bg-green-100 text-green-800 px-2 py-1 rounded text-sm">LLM</span>
                         </div>
+                        <div class="mt-4 text-purple-600 font-medium">Click to view details →</div>
                     </div>
                 </div>
 
                 <!-- Project 2 -->
-                <div class="bg-white rounded-xl shadow-lg overflow-hidden card-hover fade-in">
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden card-hover fade-in cursor-pointer" onclick="showProject('project2')">
                     <div class="h-48 bg-gradient-to-br from-green-400 to-blue-500 flex items-center justify-center">
                         <i class="fas fa-desktop text-white text-4xl"></i>
                     </div>
@@ -192,11 +193,12 @@
                             <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded text-sm">ML</span>
                             <span class="bg-green-100 text-green-800 px-2 py-1 rounded text-sm">Automation</span>
                         </div>
+                        <div class="mt-4 text-purple-600 font-medium">Click to view details →</div>
                     </div>
                 </div>
 
                 <!-- Project 3 -->
-                <div class="bg-white rounded-xl shadow-lg overflow-hidden card-hover fade-in">
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden card-hover fade-in cursor-pointer" onclick="showProject('project3')">
                     <div class="h-48 bg-gradient-to-br from-yellow-400 to-red-500 flex items-center justify-center">
                         <i class="fas fa-chart-line text-white text-4xl"></i>
                     </div>
@@ -208,6 +210,7 @@
                             <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded text-sm">Finance</span>
                             <span class="bg-green-100 text-green-800 px-2 py-1 rounded text-sm">Analytics</span>
                         </div>
+                        <div class="mt-4 text-purple-600 font-medium">Click to view details →</div>
                     </div>
                 </div>
             </div>
@@ -266,6 +269,17 @@
             </div>
         </div>
     </section>
+
+    <!-- Project Detail Modal -->
+    <div id="project-modal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden">
+        <div class="min-h-screen flex items-center justify-center p-4">
+            <div class="bg-white rounded-xl max-w-4xl w-full max-h-screen overflow-y-auto">
+                <div id="project-content">
+                    <!-- Project content will be dynamically inserted here -->
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- Footer -->
     <footer class="bg-gray-800 text-white py-8">
@@ -342,6 +356,200 @@
                 el.classList.add('visible');
             });
         }, 500);
+
+        // Project data
+        const projectData = {
+            project1: {
+                title: "AI-Powered RGPD Chatbot",
+                subtitle: "Intelligent Legal Compliance Assistant",
+                banner: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+                icon: "fas fa-robot",
+                description: `This project represents a cutting-edge solution for RGPD (General Data Protection Regulation) compliance. The chatbot leverages advanced Natural Language Processing and Retrieval-Augmented Generation (RAG) technology to provide accurate, contextual legal guidance.
+
+                The system combines the power of Large Language Models with a comprehensive knowledge base of RGPD regulations, creating an intelligent assistant that can understand complex legal queries and provide precise, actionable responses. This solution significantly reduces the time and expertise required for RGPD compliance tasks.
+
+                Built with modern AI technologies, the chatbot maintains high accuracy while being user-friendly for both legal professionals and business users who need quick access to compliance information.`,
+                features: [
+                    "Natural Language Processing for query understanding",
+                    "RAG implementation for accurate information retrieval",
+                    "Integration with OpenAI GPT models",
+                    "Comprehensive RGPD knowledge base",
+                    "Real-time response generation",
+                    "Multi-language support",
+                    "Conversation history tracking",
+                    "Export compliance reports"
+                ],
+                technologies: ["Python", "LangChain", "OpenAI API", "Vector Databases", "FastAPI", "React", "PostgreSQL"],
+                images: [
+                    { color: "from-purple-400 to-blue-500", icon: "fas fa-comments" },
+                    { color: "from-blue-400 to-purple-500", icon: "fas fa-brain" },
+                    { color: "from-indigo-400 to-blue-500", icon: "fas fa-database" }
+                ]
+            },
+            project2: {
+                title: "PyQt6 Data Preprocessing Tool",
+                subtitle: "Automated ML Workflow Assistant",
+                banner: "linear-gradient(135deg, #4ade80 0%, #3b82f6 100%)",
+                icon: "fas fa-desktop",
+                description: `A comprehensive desktop application built with PyQt6 that revolutionizes the data preprocessing workflow for machine learning projects. This tool automates repetitive tasks and generates clean, production-ready code for data scientists and ML engineers.
+
+                The application features an intuitive drag-and-drop interface that allows users to build complex data preprocessing pipelines without writing code. It automatically handles common data issues like missing values, outliers, and feature scaling while generating the corresponding Python code.
+
+                This tool significantly reduces the time spent on data preparation, allowing data scientists to focus on model development and analysis. The generated code is clean, well-documented, and follows best practices.`,
+                features: [
+                    "Drag-and-drop pipeline builder",
+                    "Automatic data quality assessment",
+                    "Missing value imputation strategies",
+                    "Feature scaling and normalization",
+                    "Outlier detection and handling",
+                    "Automated code generation",
+                    "Data visualization dashboard",
+                    "Export to Jupyter notebooks"
+                ],
+                technologies: ["Python", "PyQt6", "Pandas", "Scikit-learn", "Matplotlib", "Seaborn", "NumPy"],
+                images: [
+                    { color: "from-green-400 to-blue-500", icon: "fas fa-chart-bar" },
+                    { color: "from-blue-400 to-green-500", icon: "fas fa-cogs" },
+                    { color: "from-teal-400 to-blue-500", icon: "fas fa-code" }
+                ]
+            },
+            project3: {
+                title: "Crypto/Stock Portfolio Tracker",
+                subtitle: "Real-time Investment Analytics Platform",
+                banner: "linear-gradient(135deg, #fbbf24 0%, #ef4444 100%)",
+                icon: "fas fa-chart-line",
+                description: `A comprehensive portfolio tracking application designed for modern investors who need real-time insights into their cryptocurrency and stock investments. This platform combines powerful analytics with an intuitive interface to provide actionable investment intelligence.
+
+                The application fetches real-time market data from multiple sources and provides advanced analytics including portfolio performance metrics, risk assessment, and trend analysis. Users can track their investments across different asset classes and get personalized insights.
+
+                Currently in active development, this project aims to democratize professional-grade investment analytics for individual investors. The platform will include features like automated rebalancing suggestions and AI-powered market sentiment analysis.`,
+                features: [
+                    "Real-time price tracking",
+                    "Portfolio performance analytics",
+                    "Risk assessment tools",
+                    "Automated profit/loss calculations",
+                    "Multi-asset class support",
+                    "Custom alerts and notifications",
+                    "Historical data analysis",
+                    "Tax reporting assistance"
+                ],
+                technologies: ["Python", "FastAPI", "React", "PostgreSQL", "Redis", "WebSocket", "Chart.js", "Alpha Vantage API"],
+                images: [
+                    { color: "from-yellow-400 to-red-500", icon: "fas fa-chart-line" },
+                    { color: "from-red-400 to-yellow-500", icon: "fas fa-coins" },
+                    { color: "from-orange-400 to-red-500", icon: "fas fa-analytics" }
+                ]
+            }
+        };
+
+        // Show project function
+        function showProject(projectId) {
+            const project = projectData[projectId];
+            if (!project) return;
+
+            const modal = document.getElementById('project-modal');
+            const content = document.getElementById('project-content');
+
+            content.innerHTML = `
+                <div class="relative">
+                    <!-- Close button -->
+                    <button onclick="closeProject()" class="absolute top-4 right-4 z-10 bg-white rounded-full p-2 shadow-lg hover:bg-gray-100 transition-colors">
+                        <i class="fas fa-times text-gray-600"></i>
+                    </button>
+
+                    <!-- Project Banner -->
+                    <div class="h-64 flex items-center justify-center text-white relative overflow-hidden" style="background: ${project.banner}">
+                        <div class="text-center z-10">
+                            <i class="${project.icon} text-6xl mb-4"></i>
+                            <h1 class="text-4xl font-bold mb-2">${project.title}</h1>
+                            <p class="text-xl opacity-90">${project.subtitle}</p>
+                        </div>
+                    </div>
+
+                    <div class="p-8">
+                        <!-- Description -->
+                        <div class="mb-8">
+                            <h2 class="text-2xl font-bold text-gray-800 mb-4">Project Overview</h2>
+                            <div class="text-gray-600 leading-relaxed space-y-4">
+                                ${project.description.split('\n\n').map(paragraph => `<p>${paragraph.trim()}</p>`).join('')}
+                            </div>
+                        </div>
+
+                        <!-- Image Gallery -->
+                        <div class="mb-8">
+                            <h2 class="text-2xl font-bold text-gray-800 mb-4">Project Gallery</h2>
+                            <div class="grid md:grid-cols-3 gap-4">
+                                ${project.images.map((img, index) => `
+                                    <div class="h-48 bg-gradient-to-br ${img.color} rounded-lg flex items-center justify-center cursor-pointer hover:scale-105 transition-transform">
+                                        <i class="${img.icon} text-white text-4xl"></i>
+                                    </div>
+                                `).join('')}
+                            </div>
+                        </div>
+
+                        <!-- Features and Technologies -->
+                        <div class="grid md:grid-cols-2 gap-8 mb-8">
+                            <!-- Key Features -->
+                            <div>
+                                <h2 class="text-2xl font-bold text-gray-800 mb-4">Key Features</h2>
+                                <ul class="space-y-2">
+                                    ${project.features.map(feature => `
+                                        <li class="flex items-start">
+                                            <i class="fas fa-check-circle text-green-500 mt-1 mr-3"></i>
+                                            <span class="text-gray-600">${feature}</span>
+                                        </li>
+                                    `).join('')}
+                                </ul>
+                            </div>
+
+                            <!-- Technologies Used -->
+                            <div>
+                                <h2 class="text-2xl font-bold text-gray-800 mb-4">Technologies Used</h2>
+                                <div class="flex flex-wrap gap-2">
+                                    ${project.technologies.map(tech => `
+                                        <span class="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm">${tech}</span>
+                                    `).join('')}
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Back Button -->
+                        <div class="text-center">
+                            <button onclick="closeProject()" class="bg-purple-600 text-white px-8 py-3 rounded-lg hover:bg-purple-700 transition-colors font-semibold">
+                                <i class="fas fa-arrow-left mr-2"></i>Back to Portfolio
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `;
+
+            modal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+
+        // Close project function
+        function closeProject() {
+            const modal = document.getElementById('project-modal');
+            modal.classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modal when clicking outside
+        document.getElementById('project-modal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeProject();
+            }
+        });
+
+        // Close modal with Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeProject();
+            }
+        });
+
+        // Make showProject function globally available
+        window.showProject = showProject;
     </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'966383336003fb6d',t:'MTc1MzY5NjY0OC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9665adcf357873bf',t:'MTc1MzcxOTM2NS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
