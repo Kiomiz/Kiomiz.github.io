@@ -249,27 +249,35 @@
 
                 <!-- Contact Form -->
                 <div class="fade-in">
-                    <form action="https://formsubmit.co/mathis.coutelier@hotmail.com" method="POST" id="contact-form" class="space-y-6">
-                        <input type="hidden" name="_captcha" value="false">
-                        <input type="hidden" name="_template" value="table">
-                        <input type="hidden" name="_next" value="https://kiomiz.github.io/">
-                        <div>
-                            <label for="name" class="block text-sm font-medium text-gray-700 mb-2">Name</label>
-                            <input type="text" id="name" name="name" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent">
-                        </div>
-                        <div>
-                            <label for="email" class="block text-sm font-medium text-gray-700 mb-2">Email</label>
-                            <input type="email" id="email" name="email" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent">
-                        </div>
-                        <div>
-                            <label for="message" class="block text-sm font-medium text-gray-700 mb-2">Message</label>
-                            <textarea id="message" name="message" rows="5" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"></textarea>
-                        </div>
-                        <button type="submit" class="w-full bg-purple-600 text-white py-3 px-6 rounded-lg hover:bg-purple-700 transition-colors font-semibold">
-                            Send Message
-                        </button>
-                    </form>
-                    <div id="form-message" class="mt-4 text-center hidden"></div>
+                  <form target="_blank" action="https://formsubmit.co/mathis.coutelier@hotmail.com" method="POST" class="space-y-6">
+                
+                    <input type="hidden" name="_captcha" value="false">
+                    <input type="hidden" name="_template" value="table">
+                    <input type="hidden" name="_next" value="https://kiomiz.github.io/">
+                
+                    <div>
+                      <label for="name" class="block text-sm font-medium text-gray-700 mb-2">Name</label>
+                      <input type="text" id="name" name="name" required
+                        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent">
+                    </div>
+                
+                    <div>
+                      <label for="email" class="block text-sm font-medium text-gray-700 mb-2">Email</label>
+                      <input type="email" id="email" name="email" required
+                        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent">
+                    </div>
+                
+                    <div>
+                      <label for="message" class="block text-sm font-medium text-gray-700 mb-2">Message</label>
+                      <textarea id="message" name="message" rows="5" required
+                        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"></textarea>
+                    </div>
+                
+                    <button type="submit"
+                      class="w-full bg-purple-600 text-white py-3 px-6 rounded-lg hover:bg-purple-700 transition-colors font-semibold">
+                      Send Message
+                    </button>
+                  </form>
                 </div>
             </div>
         </div>
@@ -290,7 +298,6 @@
     <footer class="bg-gray-800 text-white py-8">
         <div class="max-w-6xl mx-auto px-4 text-center">
             <p>&copy; 2025 Mathis Coutelier. All rights reserved.</p>
-            <p class="text-gray-400 mt-2">Built with passion for data science and AI</p>
         </div>
     </footer>
 
@@ -335,43 +342,7 @@
 
         document.querySelectorAll('.fade-in').forEach(el => {
             observer.observe(el);
-        });
-
-        // Contact form handling
-        document.getElementById('contact-form').addEventListener('submit', function(e) {
-            e.preventDefault();
-
-            const form = this;
-            const formMessage = document.getElementById('form-message');
-            const formData = new FormData(form);
-
-            fetch(form.action, {
-                method: "POST",
-                body: formData
-
-            }).then(response => {
-                if (response.ok) {
-                    formMessage.className = 'mt-4 text-center p-4 bg-green-100 text-green-800 rounded-lg';
-                    formMessage.textContent = 'Thank you! Your message has been sent successfully.';
-                    formMessage.classList.remove('hidden');
-                    form.reset();
-                
-                    setTimeout(() => {
-                        formMessage.classList.add('hidden');
-                    }, 5000);
-                } else {
-                    throw new Error("Error while sending the message.");
-                }
-            }).catch(error => {
-                formMessage.className = 'mt-4 text-center p-4 bg-red-100 text-red-800 rounded-lg';
-                formMessage.textContent = 'Oops! Something went wrong. Please try again.';
-                formMessage.classList.remove('hidden');
-            
-                setTimeout(() => {
-                    formMessage.classList.add('hidden');
-                }, 5000);
-            });
-        });
+        });        
 
         // Initialize first fade-in elements
         setTimeout(() => {
